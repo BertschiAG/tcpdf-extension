@@ -1,12 +1,13 @@
 {
-    "name": "naitsirch/tcpdf-extension",
+    "name": "bertschiag/tcpdf-extension",
     "type": "library",
     "description": "This library extends the TCPDF library for example with a smart API for creating tables.",
     "keywords": ["php", "pdf", "tcpdf", "generator"],
     "homepage": "https://github.com/naitsirch/tcpdf-extension",
     "license": "MIT",
     "authors": [
-        { "name": "naitsirch", "email": "naitsirch@e.mail.de" }
+        { "name": "naitsirch", "email": "naitsirch@e.mail.de" },
+        { "name": "xonnex", "email": "janik.baumann@bertschi.com" }
     ],
     "require": {
         "php": ">=5.3.3",

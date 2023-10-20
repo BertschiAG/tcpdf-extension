@@ -20,7 +20,7 @@ Add this to your project's composer.json:
 ```json
 {
     "require": {
-        "naitsirch/tcpdf-extension": "dev-master"
+        "bertschiag/tcpdf-extension": "dev-master"
     }
 }
 ```
