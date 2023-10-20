@@ -32,6 +32,7 @@ class Cell
     private $fontSize;
     private $fontWeight;
     private $padding = array();
+    private $borderWidth;
 
     public function __construct(Row $row, $text = '')
     {
@@ -126,7 +127,7 @@ class Cell
     /**
      * Set a formatter callable for the background. This allows you to
      * modify options of the image on the run.
-     * 
+     *
      * @param callable $formatter
      * @return \Tcpdf\Extension\Table\Cell
      */
@@ -367,7 +368,7 @@ class Cell
         $this->fontWeight = $fontWeight;
         return $this;
     }
-    
+
     /**
      * Get the font size in PT.
      * @return int
@@ -388,10 +389,10 @@ class Cell
         return $this;
     }
 
-    
+
     /**
      * Return cell padding.
-     *     
+     *
      * @return array like this: array(
      *     'T' => 0,        // top
      *     'R' => 1.000125  // right
@@ -403,24 +404,24 @@ class Cell
     {
         return $this->padding;
     }
-    
+
     /**
      * Set the padding of the cell. Defining the paddings is analogue to the
      * definition in CSS.
-     * 
+     *
      * Set all paddings by array
      * @example $pdf->setPadding(array('T' => 2, 'R' => 3, 'B' => 2, 'L' => 3));
-     * 
+     *
      * Set all paddings by parameters
      * @example $pdf->setPadding(2, 3, 2, 3);
-     * 
+     *
      * Passing one parameter, assigns the value to all paddings
      * @example $pdf->setPadding(2);
-     * 
+     *
      * Passing two parameters, assigns the first one to the top and bottom padding
      * and the second parameter to the right and left padding.
      * @example $pdf->setPadding(2, 3);
-     * 
+     *
      * @param float|array $top
      * @param float $right
      * @param float $bottom
@@ -430,7 +431,7 @@ class Cell
     public function setPadding($top = null, $right = null, $bottom = null, $left = null)
     {
         $padding = array();
-        
+
         if (is_array($top)) {
             $padding = $top;
         } else {
@@ -447,14 +448,14 @@ class Cell
                 $padding['L'] = $left;
             }
         }
-        
+
         if (isset($padding['T']) && !isset($padding['R']) && !isset($padding['B']) && !isset($padding['L'])) {
             $padding['R'] = $padding['B'] = $padding['L'] = $padding['T'];
         } else if (isset($padding['T']) && isset($padding['R']) && !isset($padding['B']) && !isset($padding['L'])) {
             $padding['B'] = $padding['T'];
             $padding['L'] = $padding['R'];
         }
-        
+
         $this->padding = array_replace(array(
                 'T' => 1,
                 'R' => 1,
@@ -464,7 +465,7 @@ class Cell
             $this->padding,
             $padding
         );
-        
+
         return $this;
     }
 
